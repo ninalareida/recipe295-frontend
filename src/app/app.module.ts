@@ -13,7 +13,13 @@ import {AppAuthGuard} from './guard/app.auth.guard';
 import { AppAuthService } from './service/app.auth.service';
 import { MatButtonModule } from '@angular/material/button';
 import { ChefComponent } from './pages/chef/chef.component';
-import { TipComponent } from './pages/tip/tip.component'
+import { TipComponent } from './pages/tip/tip.component';
+import { MealComponent } from './pages/meal/meal.component';
+import { AppHeaderComponent } from './components/app-header/app-header.component'
+import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list'
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MealTypeComponent } from './pages/meal-type/meal-type.component'
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/ILV',
@@ -38,7 +44,10 @@ export function storageFactory(): OAuthStorage {
   declarations: [
     AppComponent,
     ChefComponent,
-    TipComponent
+    TipComponent,
+    MealComponent,
+    AppHeaderComponent,
+    MealTypeComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +55,9 @@ export function storageFactory(): OAuthStorage {
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
+    MatIconModule,
+    MatGridListModule,
+    MatSidenavModule,
     OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',

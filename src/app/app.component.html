@@ -1,9 +1,107 @@
+<div style="height: 100%; overflow: hidden" class="header">
+  <div style="vertical-align: middle">
+    <button (click)="drawer.toggle()" color="primary" mat-icon-button type="button">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <app-header></app-header>
+  </div>
+
+
+  <mat-drawer-container class="recipe-container">
+    <mat-drawer #drawer [opened]="true" class="recipe-sidenav" mode="side">
+      <div>
+        <div>
+          <button [routerLink]="['meal']" color="primary" mat-button>
+            <mat-icon>restaurant</mat-icon>&nbsp;{{'Meals'}}</button>
+        </div>
+        <div>
+          <button [routerLink]="['meal-type']" color="primary" mat-button>
+            <mat-icon>dashboard</mat-icon>&nbsp;{{'Meal types'}}</button>
+        </div>
+        <div>
+          <button [routerLink]="['chef']" color="primary" mat-button>
+            <mat-icon>mood</mat-icon>&nbsp;{{'Chefs'}}</button>
+        </div>
+        <div>
+          <button [routerLink]="['tip']" color="primary" mat-button>
+            <mat-icon>beenhere</mat-icon>&nbsp;{{'Tips'}}</button>
+        </div>
+        <div *ngIf="oauthService.hasValidAccessToken()" style="margin-top: 50px">
+          <button (click)="logout()" color="warn" mat-button>
+            <mat-icon>logout</mat-icon>
+            {{ 'nav.logout'}}
+          </button>
+        </div>
+      </div>
+
+    </mat-drawer>
+
+    <div class="recipe-sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-drawer-container>
+</div>
+
+
+
+
+
+
+
+<!-- this is
 <div>
+  <app-header></app-header>
+</div>
+<div class="login">
   <button (click)="login()" color="warn" mat-button>login</button>
 </div>
-<div>
+<div class="logout">
   <button (click)="logout()" color="warn" mat-button>logout</button>
 </div>
+-->
+
+<!--<mat-drawer-container>
+  <mat-drawer class="sidenav" mode="side">
+    <div>
+      <div>
+        <button [routerLink]="['chef']" color="primary" mat-button>
+          <mat-icon>chef</mat-icon>&nbsp;{{'nav.chef'}}</button>
+      </div>
+    </div>
+  </mat-drawer>
+</mat-drawer-container>-->
+
+<!-- this is
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened><button [routerLink]="['chef']" color="primary" mat-button>CHEF</button></mat-sidenav>
+  <mat-sidenav mode="side" opened><button [routerLink]="['meal']" color="primary" mat-button>MEAL</button></mat-sidenav>
+  <mat-sidenav-content>hello {{'chef'}}</mat-sidenav-content>
+  <mat-sidenav-content>hh</mat-sidenav-content>
+</mat-sidenav-container>
+-->
+
+<!--
+<mat-grid-list cols="2" rowHeight="4:1">
+
+  <mat-grid-tile-header>
+    <app-header></app-header>
+  <div class="login">
+    <button (click)="login()" color="warn" mat-button>login</button>
+  </div>
+  <div class="logout">
+    <button (click)="logout()" color="warn" mat-button>logout</button>
+  </div>
+  </mat-grid-tile-header>
+
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile>1</mat-grid-tile>
+</mat-grid-list>
+-->
+<!-- important
 <div>
   <router-outlet></router-outlet>
 </div>
+ -->
