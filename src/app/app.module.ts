@@ -11,22 +11,31 @@ import {HttpXSRFInterceptor} from './interceptor/http.csrf.interceptor';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {AppAuthGuard} from './guard/app.auth.guard';
 import { AppAuthService } from './service/app.auth.service';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { ChefComponent } from './pages/chef/chef.component';
 import { TipComponent } from './pages/tip/tip.component';
 import { MealComponent } from './pages/meal/meal.component';
+import {MatTableModule} from '@angular/material/table';
 import { AppHeaderComponent } from './components/app-header/app-header.component'
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list'
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MealTypeComponent } from './pages/meal-type/meal-type.component'
+import {MatDialogModule} from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { IsInRoleDirective } from './dir/is.in.role.dir';
+import { IsInRolesDirective } from './dir/is.in.roles.dir';
+import { AutofocusDirective } from './dir/autofocus-dir';
 
 export const authConfig: AuthConfig = {
-  issuer: 'http://localhost:8080/realms/ILV',
+  issuer: 'http://localhost:8080/realms/recipe',
   requireHttps: false,
   redirectUri: environment.frontendBaseUrl,
   postLogoutRedirectUri: environment.frontendBaseUrl,
-  clientId: 'demoapp',
+  clientId: 'recipe',
   scope: 'openid profile roles offline_access',
   responseType: 'code',
   showDebugInformation: true,
@@ -47,7 +56,11 @@ export function storageFactory(): OAuthStorage {
     TipComponent,
     MealComponent,
     AppHeaderComponent,
-    MealTypeComponent
+    MealTypeComponent,
+    ConfirmDialogComponent,
+    IsInRoleDirective,
+    IsInRolesDirective,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
@@ -58,6 +71,11 @@ export function storageFactory(): OAuthStorage {
     MatIconModule,
     MatGridListModule,
     MatSidenavModule,
+    MatToolbarModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatDialogModule,
+    MatSnackBarModule,
     OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',
