@@ -16,13 +16,13 @@ export class BaseComponent {
   protected closeMessage = '';
 
   constructor() {
-    this.messageSaved = "Erfolgreich gespeichert";
-    /*this.messageClose = text['messages.close'];
-    this.messageError = text['messages.save_error'];
-    this.messageNewSaved = text['messages.save_new_ok'];
-    this.messageNewError = text['messages.save_new_error'];
-    this.deletedMessage = text['messages.deleted_ok'];
-    this.deleteErrorMessage = text['messages.delete_error'];
-    this.closeMessage = text['messages.close'];*/
+    this.messageSaved = "Saved successfully";
+    this.messageClose = "Close";
+    this.messageError = "Saved failed";
+    this.messageNewSaved = "New save successful";
+    this.messageNewError = "New save failed";
+    this.deletedMessage = "Deleted successfully";
+    this.deleteErrorMessage = "Deleted failed";
+    this.closeMessage = "Close";
   }
 }

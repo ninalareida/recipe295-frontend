@@ -19,11 +19,11 @@ export class MealComponent implements OnInit, AfterViewInit{
   mealDataSource = new MatTableDataSource<Meal>();
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
-  columns = ['name', 'actions'];
+  columns = ['name', 'instructions', 'actions'];
 
   public constructor(private mealService: MealService, private dialog: MatDialog,
                       private headerService: HeaderService, private router: Router, private snackBar: MatSnackBar) {
-    this.headerService.setPage('nav.departments');
+    this.headerService.setPage('meals');
   }
 
   async ngOnInit() {
@@ -49,7 +49,7 @@ export class MealComponent implements OnInit, AfterViewInit{
   async add() {
     await this.router.navigate(['meal']);
   }
-/**
+
   delete(e: Meal) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: '400px',
@@ -64,16 +64,16 @@ export class MealComponent implements OnInit, AfterViewInit{
       this.mealService.delete(e.id).subscribe({
         next: response => {
           if (response.status === 200) {
-            this.snackBar.open(this.deletedMessage, this.closeMessage, {duration: 5000});
+            this.snackBar.open('Meal deleted!', 'Close', {duration: 5000});
             this.reloadData();
           } else {
-            this.snackBar.open(this.deleteErrorMessage, this.closeMessage, {duration: 5000});
+            this.snackBar.open('Item could not be deleted, server error!', 'Close', {duration: 5000});
           }
         },
-        error: () => this.snackBar.open(this.deleteErrorMessage, this.closeMessage, {duration: 5000})
+        error: () => this.snackBar.open('Item could not be deleted, server error!', 'Close', {duration: 5000})
       });
     }
   });
   }
-  */
+
 }

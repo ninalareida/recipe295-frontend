@@ -1,3 +1,4 @@
+<h1>Meals</h1>
 <p>Try this amazing meals!</p>
 
 <div>
@@ -6,7 +7,7 @@
       <span>
         <button (click)="add()" *appIsInRole="'admin'" color="primary" mat-button style="color: white">
           <mat-icon>add</mat-icon>
-          {{'meal.button_new'}}
+          Add new meal
         </button>
       </span>
     </mat-toolbar>
@@ -18,16 +19,18 @@
         <button (click)="edit(element)" *appIsInRole="'admin'" color="primary" mat-button>
           <mat-icon>edit</mat-icon>
         </button>
-        <!--
         <button (click)="delete(element)" *appIsInRole="'admin'" color="warn" mat-button>
           <mat-icon>delete</mat-icon>
         </button>
-        -->
       </td>
     </ng-container>
     <ng-container matColumnDef="name">
-      <th *matHeaderCellDef mat-header-cell>{{'department.name'}}</th>
+      <th *matHeaderCellDef mat-header-cell>{{'Meal name'}}</th>
       <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="instructions">
+      <th *matHeaderCellDef mat-header-cell>{{'Instructions'}}</th>
+      <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>
     </ng-container>
     <tr *matHeaderRowDef="columns" mat-header-row></tr>
     <tr *matRowDef="let row; columns: columns;" mat-row></tr>

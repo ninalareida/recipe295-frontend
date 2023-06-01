@@ -29,6 +29,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { IsInRoleDirective } from './dir/is.in.role.dir';
 import { IsInRolesDirective } from './dir/is.in.roles.dir';
 import { AutofocusDirective } from './dir/autofocus-dir';
+import { MealDetailComponent } from './pages/meal-detail/meal-detail.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/recipe',
@@ -60,7 +63,8 @@ export function storageFactory(): OAuthStorage {
     ConfirmDialogComponent,
     IsInRoleDirective,
     IsInRolesDirective,
-    AutofocusDirective
+    AutofocusDirective,
+    MealDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +80,9 @@ export function storageFactory(): OAuthStorage {
     MatTableModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
     OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',
