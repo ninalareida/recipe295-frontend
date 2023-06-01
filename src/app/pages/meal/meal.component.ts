@@ -19,7 +19,7 @@ export class MealComponent implements OnInit, AfterViewInit{
   mealDataSource = new MatTableDataSource<Meal>();
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
-  columns = ['id', 'name', 'meal-type', 'instructions', 'actions'];
+  columns = ['id', 'name', 'meal-type', 'instructions', 'chef', 'actions'];
 
   public constructor(private mealService: MealService, private dialog: MatDialog,
                       private headerService: HeaderService, private router: Router,

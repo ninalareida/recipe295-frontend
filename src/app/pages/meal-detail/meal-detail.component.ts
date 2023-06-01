@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Chef } from 'src/app/dataaccess/chef';
 import { Meal } from 'src/app/dataaccess/meal';
 import { MealType } from 'src/app/dataaccess/meal-type';
 import { MealService } from 'src/app/service/meal.service';
@@ -15,11 +16,13 @@ export class MealDetailComponent implements OnInit {
 
   meal = new Meal();
   mealtypes: MealType[] = [];
+  chefs: Chef[] = [];
 
   public objForm = new UntypedFormGroup({
     name: new UntypedFormControl(''),
     mealtypeType: new UntypedFormControl(''),
-    instructions: new UntypedFormControl('')
+    instructions: new UntypedFormControl(''),
+    chefName: new UntypedFormControl('')
   });
 
   constructor(private router: Router, private route: ActivatedRoute,
@@ -34,6 +37,7 @@ export class MealDetailComponent implements OnInit {
         this.meal = obj;
         this.objForm = this.formBuilder.group(obj);
         this.objForm.addControl('mealtypeType', new UntypedFormControl(obj.mealType.type));
+        this.objForm.addControl('chefName', new UntypedFormControl(obj.chef.lastname));
       });
     } else {
       this.objForm = this.formBuilder.group(this.meal);
@@ -48,6 +52,7 @@ export class MealDetailComponent implements OnInit {
     this.meal = Object.assign(formData);
 
     this.meal.mealType = this.mealtypes.find(o => o.id === formData.mealtypeType) as MealType;
+    this.meal.chef = this.chefs.find(o => o.id === formData.chefName) as Chef;
 
     if (this.meal.id) {
       this.mealService.update(this.meal).subscribe({

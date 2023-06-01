@@ -24,6 +24,10 @@
         </button>
       </td>
     </ng-container>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell>Id</th>
+      <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+    </ng-container>
     <ng-container matColumnDef="name">
       <th *matHeaderCellDef mat-header-cell>Meal name</th>
       <td *matCellDef="let element" mat-cell> {{element.name}} </td>
@@ -35,6 +39,10 @@
     <ng-container matColumnDef="instructions">
       <th *matHeaderCellDef mat-header-cell>Instructions</th>
       <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>
+    </ng-container>
+    <ng-container matColumnDef="chef">
+      <th *matHeaderCellDef mat-header-cell>Chef</th>
+      <td *matCellDef="let element" mat-cell> {{element.chef}} </td>
     </ng-container>
     <tr *matHeaderRowDef="columns" mat-header-row></tr>
     <tr *matRowDef="let row; columns: columns;" mat-row></tr>
