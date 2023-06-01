@@ -34,6 +34,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MealTypeDetailComponent } from './pages/meal-type-detail/meal-type-detail.component';
 import {MatInputModule} from "@angular/material/input";
+import { ChefDetailComponent } from './pages/chef-detail/chef-detail.component';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/recipe',
@@ -67,7 +68,8 @@ export function storageFactory(): OAuthStorage {
     IsInRolesDirective,
     AutofocusDirective,
     MealDetailComponent,
-    MealTypeDetailComponent
+    MealTypeDetailComponent,
+    ChefDetailComponent
   ],
   imports: [
     BrowserModule,

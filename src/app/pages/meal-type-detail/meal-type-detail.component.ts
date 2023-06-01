@@ -58,7 +58,7 @@ export class MealTypeDetailComponent implements OnInit {
           this.back();
         },
         error: () => {
-          this.snackBar.open('Failed to save type new meal', 'Close', {duration: 5000, politeness: 'assertive'});
+          this.snackBar.open('Failed to save new meal type', 'Close', {duration: 5000, politeness: 'assertive'});
         }
       });
     }
