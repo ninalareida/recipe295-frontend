@@ -54,8 +54,8 @@ export class MealComponent implements OnInit, AfterViewInit{
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: '400px',
       data: {
-        title: 'dialogs.title_delete',
-        message: 'dialogs.message_delete'
+        title: 'Delete meal',
+        message: 'Are you sure you want to delte this meal?'
       }
   });
 

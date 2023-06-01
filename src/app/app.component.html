@@ -11,11 +11,11 @@
     <mat-drawer #drawer [opened]="true" class="recipe-sidenav" mode="side">
       <div>
         <div>
-          <button [routerLink]="['meal']" color="primary" mat-button>
+          <button [routerLink]="['meals']" color="primary" mat-button>
             <mat-icon>restaurant</mat-icon>&nbsp;{{'Meals'}}</button>
         </div>
         <div>
-          <button [routerLink]="['meal-type']" color="primary" mat-button>
+          <button [routerLink]="['meal-types']" color="primary" mat-button>
             <mat-icon>dashboard</mat-icon>&nbsp;{{'Meal types'}}</button>
         </div>
         <div>
@@ -28,9 +28,7 @@
         </div>
         <div *ngIf="oauthService.hasValidAccessToken()" style="margin-top: 50px">
           <button (click)="logout()" color="warn" mat-button>
-            <mat-icon>logout</mat-icon>
-            {{ 'nav.logout'}}
-          </button>
+            <mat-icon>logout</mat-icon>Logout</button>
         </div>
         <div>
           <button (click)="login()" color="warn" mat-button>

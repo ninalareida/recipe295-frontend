@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class MealtypeService {
 
-  readonly backendUrl = 'meal-type';
+  readonly backendUrl = 'mealtype';
 
   constructor(private http: HttpClient) { }
 

@@ -32,6 +32,8 @@ import { AutofocusDirective } from './dir/autofocus-dir';
 import { MealDetailComponent } from './pages/meal-detail/meal-detail.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MealTypeDetailComponent } from './pages/meal-type-detail/meal-type-detail.component';
+import {MatInputModule} from "@angular/material/input";
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/recipe',
@@ -64,7 +66,8 @@ export function storageFactory(): OAuthStorage {
     IsInRoleDirective,
     IsInRolesDirective,
     AutofocusDirective,
-    MealDetailComponent
+    MealDetailComponent,
+    MealTypeDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ export function storageFactory(): OAuthStorage {
     MatSnackBarModule,
     MatFormFieldModule,
     FormsModule,
+    MatInputModule,
     ReactiveFormsModule,
     OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
     HttpClientXsrfModule.withOptions({

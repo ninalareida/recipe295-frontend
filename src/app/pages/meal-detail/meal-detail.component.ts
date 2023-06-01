@@ -36,7 +36,7 @@ export class MealDetailComponent implements OnInit {
   }
 
   async back() {
-    await this.router.navigate(['meal']);
+    await this.router.navigate(['meals']);
   }
 
   async save(formData: any) {

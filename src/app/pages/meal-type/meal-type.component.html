@@ -1,1 +1,41 @@
-<p>meal-type works!</p>
+<h1>Meal types</h1>
+<p>This are the meal types!</p>
+
+<div>
+  <div>
+    <mat-toolbar *appIsInRole="'admin'" color="primary">
+      <span>
+        <button (click)="add()" *appIsInRole="'admin'" color="primary" mat-button style="color: white">
+          <mat-icon>add</mat-icon>
+          Add new meal type
+        </button>
+      </span>
+    </mat-toolbar>
+  </div>
+  <table [dataSource]="mealtypeDataSource" class="mat-elevation-z8 meals-table" mat-table>
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef class="w-75 th-center" mat-header-cell></th>
+      <td *matCellDef="let element" mat-cell style="text-align: end">
+        <button (click)="edit(element)" *appIsInRole="'admin'" color="primary" mat-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="delete(element)" *appIsInRole="'admin'" color="warn" mat-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell>Id</th>
+      <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="type">
+      <th *matHeaderCellDef mat-header-cell>Type</th>
+      <td *matCellDef="let element" mat-cell> {{element.type}} </td>
+    </ng-container>
+    <tr *matHeaderRowDef="columns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: columns;" mat-row></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10]" [pageSize]="10"
+                 showFirstLastButtons>
+  </mat-paginator>
+</div>
