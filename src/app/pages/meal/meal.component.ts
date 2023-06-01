@@ -2,7 +2,6 @@ import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { Meal } from 'src/app/dataaccess/meal';
 import { MatPaginator } from '@angular/material/paginator';
-import { BaseComponent } from '../../components/base/base.component';
 import { MealService } from 'src/app/service/meal.service';
 import { MatDialog } from '@angular/material/dialog';
 import { HeaderService } from 'src/app/service/header.service';
