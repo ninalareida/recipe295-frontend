@@ -28,6 +28,10 @@
       <th *matHeaderCellDef mat-header-cell>Meal name</th>
       <td *matCellDef="let element" mat-cell> {{element.name}} </td>
     </ng-container>
+    <ng-container matColumnDef="meal-type">
+      <th *matHeaderCellDef mat-header-cell>Type</th>
+      <td *matCellDef="let element" mat-cell> {{element.mealType?.type}} </td>
+    </ng-container>
     <ng-container matColumnDef="instructions">
       <th *matHeaderCellDef mat-header-cell>Instructions</th>
       <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>

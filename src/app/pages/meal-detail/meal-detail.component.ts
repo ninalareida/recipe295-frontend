@@ -3,6 +3,7 @@ import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angul
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Meal } from 'src/app/dataaccess/meal';
+import { MealType } from 'src/app/dataaccess/meal-type';
 import { MealService } from 'src/app/service/meal.service';
 
 @Component({
@@ -13,8 +14,11 @@ import { MealService } from 'src/app/service/meal.service';
 export class MealDetailComponent implements OnInit {
 
   meal = new Meal();
+  mealtypes: MealType[] = [];
+
   public objForm = new UntypedFormGroup({
     name: new UntypedFormControl(''),
+    mealtypeType: new UntypedFormControl(''),
     instructions: new UntypedFormControl('')
   });
 
@@ -29,6 +33,7 @@ export class MealDetailComponent implements OnInit {
       this.mealService.getOne(id).subscribe(obj => {
         this.meal = obj;
         this.objForm = this.formBuilder.group(obj);
+        this.objForm.addControl('mealtypeType', new UntypedFormControl(obj.mealType.type));
       });
     } else {
       this.objForm = this.formBuilder.group(this.meal);
@@ -41,6 +46,8 @@ export class MealDetailComponent implements OnInit {
 
   async save(formData: any) {
     this.meal = Object.assign(formData);
+
+    this.meal.mealType = this.mealtypes.find(o => o.id === formData.mealtypeType) as MealType;
 
     if (this.meal.id) {
       this.mealService.update(this.meal).subscribe({
