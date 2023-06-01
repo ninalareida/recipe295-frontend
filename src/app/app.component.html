@@ -19,11 +19,11 @@
             <mat-icon>dashboard</mat-icon>&nbsp;{{'Meal types'}}</button>
         </div>
         <div>
-          <button [routerLink]="['chef']" color="primary" mat-button>
+          <button [routerLink]="['chefs']" color="primary" mat-button>
             <mat-icon>mood</mat-icon>&nbsp;{{'Chefs'}}</button>
         </div>
         <div>
-          <button [routerLink]="['tip']" color="primary" mat-button>
+          <button [routerLink]="['tips']" color="primary" mat-button>
             <mat-icon>beenhere</mat-icon>&nbsp;{{'Tips'}}</button>
         </div>
         <div *ngIf="oauthService.hasValidAccessToken()" style="margin-top: 50px">
