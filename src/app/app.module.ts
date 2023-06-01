@@ -35,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MealTypeDetailComponent } from './pages/meal-type-detail/meal-type-detail.component';
 import {MatInputModule} from "@angular/material/input";
 import { ChefDetailComponent } from './pages/chef-detail/chef-detail.component';
+import { TipDetailComponent } from './pages/tip-detail/tip-detail.component';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/recipe',
@@ -69,7 +70,8 @@ export function storageFactory(): OAuthStorage {
     AutofocusDirective,
     MealDetailComponent,
     MealTypeDetailComponent,
-    ChefDetailComponent
+    ChefDetailComponent,
+    TipDetailComponent
   ],
   imports: [
     BrowserModule,

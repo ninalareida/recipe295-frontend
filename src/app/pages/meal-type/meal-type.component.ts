@@ -15,7 +15,6 @@ import { MealtypeService } from 'src/app/service/mealtype.service';
 })
 export class MealTypeComponent implements OnInit, AfterViewInit {
 
-
   mealtypeDataSource = new MatTableDataSource<MealType>();
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
