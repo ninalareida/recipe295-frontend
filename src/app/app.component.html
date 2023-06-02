@@ -30,7 +30,7 @@
           <button (click)="logout()" color="warn" mat-button>
             <mat-icon>logout</mat-icon>Logout</button>
         </div>
-        <div>
+        <div *ngIf="!oauthService.hasValidAccessToken()" style="margin-top: 50px">
           <button (click)="login()" color="warn" mat-button>
             <mat-icon>login</mat-icon>Login</button>
         </div>

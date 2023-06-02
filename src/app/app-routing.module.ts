@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'meal-type', component: MealTypeDetailComponent},
   {path: 'chefs', component: ChefComponent},
   {path: 'chef/:id', component: ChefDetailComponent},
-  {path: 'chef', component: ChefComponent},
+  {path: 'chef', component: ChefDetailComponent},
   {path: 'tips', component: TipComponent},
   {path: 'tip/:id', component: TipDetailComponent},
   {path: 'tip', component: TipDetailComponent}

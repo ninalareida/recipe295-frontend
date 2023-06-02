@@ -42,7 +42,7 @@
     </ng-container>
     <ng-container matColumnDef="chef">
       <th *matHeaderCellDef mat-header-cell>Chef</th>
-      <td *matCellDef="let element" mat-cell> {{element.chef}} </td>
+      <td *matCellDef="let element" mat-cell> {{element.chef?.lastname}} </td>
     </ng-container>
     <tr *matHeaderRowDef="columns" mat-header-row></tr>
     <tr *matRowDef="let row; columns: columns;" mat-row></tr>

@@ -19,7 +19,7 @@ export class ChefComponent implements OnInit, AfterViewInit {
   chefDataSource = new MatTableDataSource<Chef>();
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
-  columns = ['id', 'firstname', 'lastname', 'comment'];
+  columns = ['id', 'firstname', 'lastname', 'comment', 'actions'];
 
   public constructor(private chefService: ChefService, private dialog: MatDialog,
     private router: Router, private snackBar: MatSnackBar) {
