@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HeaderService } from 'src/app/service/header.service';
 
@@ -7,7 +7,7 @@ import { HeaderService } from 'src/app/service/header.service';
   templateUrl: './app-header.component.html',
   styleUrls: ['./app-header.component.scss']
 })
-export class AppHeaderComponent {
+export class AppHeaderComponent implements OnInit, OnDestroy {
 
   currentPage = '';
   private subPage?: Subscription;

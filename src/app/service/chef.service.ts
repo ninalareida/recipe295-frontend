@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Chef } from '../dataaccess/chef';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { MealType } from '../dataaccess/meal-type';
 
 @Injectable({
   providedIn: 'root'

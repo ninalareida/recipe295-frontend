@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AuthConfig, OAuthModule, OAuthStorage} from 'angular-oauth2-oidc';
 import {environment} from '../environments/environment';
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
 import {HttpXSRFInterceptor} from './interceptor/http.csrf.interceptor';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {AppAuthGuard} from './guard/app.auth.guard';
