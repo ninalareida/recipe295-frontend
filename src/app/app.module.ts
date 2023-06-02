@@ -36,6 +36,7 @@ import { MealTypeDetailComponent } from './pages/meal-type-detail/meal-type-deta
 import {MatInputModule} from "@angular/material/input";
 import { ChefDetailComponent } from './pages/chef-detail/chef-detail.component';
 import { TipDetailComponent } from './pages/tip-detail/tip-detail.component';
+import { MatSelectModule } from '@angular/material/select';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/recipe',
@@ -95,7 +96,8 @@ export function storageFactory(): OAuthStorage {
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',
       headerName: 'X-XSRF-TOKEN'
-    })
+    }),
+    MatSelectModule
   ],
   providers: [
     {provide: AuthConfig, useValue: authConfig},

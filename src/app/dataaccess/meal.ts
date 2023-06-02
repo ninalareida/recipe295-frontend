@@ -7,4 +7,6 @@ export class Meal {
   public mealType = new MealType;
   public instructions = '';
   public chef = new Chef;
+  public chefId = -1;
+  public mealtypeId = -1;
 }

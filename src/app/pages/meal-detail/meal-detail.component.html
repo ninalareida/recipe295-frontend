@@ -19,8 +19,11 @@
           </mat-form-field>
           <mat-form-field>
             <mat-label>Meal type</mat-label>
-            <input #inputMealtype formControlName="mealtypeType" matInput maxlength="500" required>
-            <mat-hint align="end">{{inputMealtype.value.length || 0}}/500</mat-hint>
+            <mat-select formControlName="mealtypeId" required>
+              <mat-option *ngFor="let mealtype of mealtypes" [value]="mealtype.id">
+                {{mealtype.type}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <mat-form-field>
               <mat-label>Instructions</mat-label>
@@ -29,8 +32,11 @@
           </mat-form-field>
           <mat-form-field>
             <mat-label>Chef</mat-label>
-            <input #inputChef formControlName="chefName" matInput maxlength="100" required>
-            <mat-hint align="end">{{inputChef.value.length || 0}}/100</mat-hint>
+            <mat-select formControlName="chefId" required>
+              <mat-option *ngFor="let chef of chefs" [value]="chef.id">
+                {{chef.firstname + " " +  chef.lastname}}
+              </mat-option>
+            </mat-select>
         </mat-form-field>
 
           <button [disabled]="!objForm.valid" color="primary" mat-raised-button style="width: 200px">
